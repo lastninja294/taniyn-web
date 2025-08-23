@@ -1,0 +1,402 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "berosong";
+  src: url("/font/Berosong-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Updated color tokens for Sounddex retro-futuristic theme */
+  --background: #0a0a0a; /* Very dark background */
+  --foreground: #ffffff; /* White text */
+  --card: #1a1a1a; /* Dark card background */
+  --card-foreground: #ffffff; /* White text on cards */
+  --popover: #1a1a1a; /* Dark popover background */
+  --popover-foreground: #ffffff; /* White popover text */
+  --primary: #ffffff; /* White accent color */
+  --primary-foreground: #000000; /* Black text on white */
+  --secondary: #2a2a2a; /* Dark gray for secondary elements */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+  --muted: #1a1a1a; /* Dark muted background */
+  --muted-foreground: #cccccc; /* Light gray muted text */
+  --accent: #ffffff; /* White accent */
+  --accent-foreground: #000000; /* Black text on accent */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #333333; /* Dark gray borders */
+  --input: #1a1a1a; /* Dark input backgrounds */
+  --ring: #ffffff; /* White focus rings */
+  --chart-1: #ffffff; /* White chart color */
+  --chart-2: #556b2f; /* Olive chart color */
+  --chart-3: #ffffff; /* White chart color */
+  --chart-4: #cccccc; /* Light gray chart color */
+  --chart-5: #666666; /* Medium gray chart color */
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a; /* Dark sidebar */
+  --sidebar-foreground: #ffffff; /* White sidebar text */
+  --sidebar-primary: #ffffff; /* White sidebar primary */
+  --sidebar-primary-foreground: #000000; /* Black sidebar primary text */
+  --sidebar-accent: #ffffff; /* White sidebar accent */
+  --sidebar-accent-foreground: #000000; /* Black sidebar accent text */
+  --sidebar-border: #333333; /* Dark gray sidebar border */
+  --sidebar-ring: #ffffff; /* White sidebar ring */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Added custom font variables for Orbitron and monospace */
+  --font-orbitron: "Orbitron", "Geist Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-berosong: "berosong", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: none;
+  }
+  /* Added custom font classes for retro-futuristic typography */
+  .font-orbitron {
+    font-family: var(--font-orbitron);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-berosong {
+    font-family: berosong, sans-serif;
+  }
+}
+
+/* Added custom animations for retro-futuristic effects */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
+  }
+  50% {
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+  }
+}
+
+@keyframes waveform {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes waveform-scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.waveform {
+  animation: waveform 1s ease-in-out infinite;
+}
+
+.waveform-scroll {
+  animation: waveform-scroll 20s linear infinite;
+}
+
+.merch-card-hover {
+  transition: all 0.3s ease;
+}
+
+.merch-card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+}
+
+.social-icon-hover {
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.social-icon-hover:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+/* Added 3D text stroke effect for hero TANIYN logo */
+.stroke-text {
+  -webkit-text-stroke: 3px #333333;
+  text-stroke: 3px #333333;
+}
+
+/* Added technical corner indicator styles */
+.technical-indicator {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: #666666;
+  letter-spacing: 0.1em;
+}
+
+.technical-indicator::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.technical-indicator.left::before {
+  left: -16px;
+}
+
+.technical-indicator.right::before {
+  right: -16px;
+}
+
+/* Added hero section gradient background animation */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0f0f0f, #151515);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Added decorative swoosh animation */
+@keyframes swoosh-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 5px rgba(102, 102, 102, 0.5));
+  }
+  50% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 10px rgba(102, 102, 102, 0.8));
+  }
+}
+
+.decorative-swoosh {
+  animation: swoosh-glow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.cursor-spotlight {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.cursor-spotlight::before,
+.cursor-spotlight::after,
+.cursor-spotlight .inner-circle {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-spotlight::before,
+.cursor-spotlight::after {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.cursor-spotlight::before {
+  animation: ripple 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.cursor-spotlight::after {
+  animation: ripple 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite 0.75s;
+}
+
+.cursor-spotlight .inner-circle {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  0% {
+    width: 20%;
+    height: 20%;
+    opacity: 0.8;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+.cursor-spotlight.hovering {
+  transform: scale(1.2);
+}
+
+.cursor-spotlight.hovering .inner-circle {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+}
+
+/* Improved hover effects */
+a:hover,
+button:hover,
+[role="button"]:hover {
+  position: relative;
+  z-index: 1;
+}
+
+a,
+button,
+[role="button"] {
+  transition: all 0.3s ease-out;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
