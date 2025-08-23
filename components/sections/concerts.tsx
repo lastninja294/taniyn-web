@@ -48,7 +48,6 @@ const Concerts = () => {
       }
     } catch (error) {
       console.error("Error fetching concerts:", error);
-      console.log("[v0] Using fallback concerts data due to fetch error");
       setConcerts([]);
     } finally {
       setIsLoadingConcerts(false);

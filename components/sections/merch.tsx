@@ -66,14 +66,12 @@ const MerchSection = () => {
 
       if (error) {
         console.error("Error fetching merch items:", error);
-        console.log("[v0] Using fallback merch data due to database error");
         setMerchItems(fallbackMerchItems);
       } else {
         setMerchItems(data && data.length > 0 ? data : fallbackMerchItems);
       }
     } catch (error) {
       console.error("Error fetching merch items:", error);
-      console.log("[v0] Using fallback merch data due to fetch error");
       setMerchItems(fallbackMerchItems);
     } finally {
       setIsLoadingMerch(false);
@@ -83,8 +81,6 @@ const MerchSection = () => {
   useEffect(() => {
     fetchMerchItems();
   }, []);
-
-  console.log("[v0] Merch items:", merchItems);
 
   return (
     <section id="merch" className="w-full py-12 md:py-24 bg-dark-900">

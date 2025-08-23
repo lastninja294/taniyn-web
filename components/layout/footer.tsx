@@ -1,14 +1,7 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowUp,
-  Instagram,
-  Music,
-  Send,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { ArrowUp, Instagram, Music, Send, Youtube } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -53,7 +46,8 @@ const Footer = () => {
                 <Youtube className="h-5 w-5" />
               </Link>
               <Link
-                href={"https://taplink.cc/taniyn"}
+                href={"/taplink"}
+                target="_blank"
                 className="text-white hover:text-gray-300 hover:bg-gray-700 p-2 rounded-md"
               >
                 <Music className="h-5 w-5" />

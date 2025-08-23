@@ -33,7 +33,49 @@ const berosong = localFont({
 export const metadata: Metadata = {
   title: "TANIYN - The Musician from the Future",
   description:
-    "TANIYN is a hip-hop/rap artist who has released songs such as '079,' '' and 'TRAPSTAR'.",
+    "TANIYN is a futuristic hip-hop/rap artist blending dark aesthetics with powerful lyricism. Known for tracks like '079,' 'Toxic,' and 'Novacaine,' TANIYN is redefining the sound of the new generation.",
+  keywords: [
+    "TANIYN",
+    "hip hop",
+    "rap",
+    "futuristic music",
+    "079",
+    "Toxic",
+    "Novacaine",
+    "Uzbek rap",
+    "underground music",
+    "music from the future",
+  ],
+  authors: [{ name: "TANIYN" }],
+  creator: "TANIYN",
+  publisher: "TANIYN",
+  openGraph: {
+    title: "TANIYN - The Musician from the Future",
+    description:
+      "Dive into TANIYN’s futuristic hip-hop world. Experience raw lyrics, unique beats, and iconic tracks like '079,' 'Toxic,' and 'Novacaine.'",
+    url: "https://taniyn.uz",
+    siteName: "TANIYN",
+    images: [
+      {
+        url: "/images/meta.png",
+        width: 800,
+        height: 800,
+        alt: "TANIYN - Futuristic Musician",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TANIYN - The Musician from the Future",
+    description:
+      "TANIYN is reshaping hip-hop with a futuristic sound. Listen to tracks like '079,' 'Toxic,' and 'Novacaine.'",
+    images: ["/images/meta.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

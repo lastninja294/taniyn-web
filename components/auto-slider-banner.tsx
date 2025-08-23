@@ -3,11 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
 
-const images = [
-  "https://64.media.tumblr.com/db8472cfbb89a155148003b053d5f3de/4d6d987e0cee7307-8e/s400x225/158142e8e876044a6191733a02f6ee5ac1643b58.gif",
-  "https://i.pinimg.com/originals/14/f4/35/14f435eaaf8d107cca5055ce150eaf47.gif",
-];
+const images = ["/video/first-scene.gif", "/video/second-scene.gif"];
 
 const AutoSliderBanner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,16 +13,13 @@ const AutoSliderBanner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+    }, 10000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   const handleShopClick = () => {
-    const productSection = document.getElementById("product-section");
-    if (productSection) {
-      productSection.scrollIntoView({ behavior: "smooth" });
-    }
+    redirect("https://t.me/taniynadmn");
   };
 
   return (
