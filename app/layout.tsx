@@ -49,6 +49,7 @@ export const metadata: Metadata = {
   authors: [{ name: "TANIYN" }],
   creator: "TANIYN",
   publisher: "TANIYN",
+  metadataBase: new URL("https://taniyn.vercel.app/"),
   openGraph: {
     title: "TANIYN - The Musician from the Future",
     description:
