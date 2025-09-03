@@ -1,4 +1,5 @@
 "use client";
+import { isMobile, isDesktop } from "react-device-detect";
 import React, { useCallback, useEffect, useState } from "react";
 
 const Cursor = () => {
@@ -15,27 +16,33 @@ const Cursor = () => {
   }, []);
 
   useEffect(() => {
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    if (isDesktop) {
+      const handleMouseEnter = () => setIsHovering(true);
+      const handleMouseLeave = () => setIsHovering(false);
 
-    const interactiveElements = document.querySelectorAll(
-      'a, button, input, [role="button"]'
-    );
-    interactiveElements.forEach((element) => {
-      element.addEventListener("mouseenter", handleMouseEnter);
-      element.addEventListener("mouseleave", handleMouseLeave);
-    });
-
-    window.addEventListener("mousemove", updateCursorPosition);
-
-    return () => {
-      window.removeEventListener("mousemove", updateCursorPosition);
+      const interactiveElements = document.querySelectorAll(
+        'a, button, input, [role="button"]'
+      );
       interactiveElements.forEach((element) => {
-        element.removeEventListener("mouseenter", handleMouseEnter);
-        element.removeEventListener("mouseleave", handleMouseLeave);
+        element.addEventListener("mouseenter", handleMouseEnter);
+        element.addEventListener("mouseleave", handleMouseLeave);
       });
-    };
+
+      window.addEventListener("mousemove", updateCursorPosition);
+
+      return () => {
+        window.removeEventListener("mousemove", updateCursorPosition);
+        interactiveElements.forEach((element) => {
+          element.removeEventListener("mouseenter", handleMouseEnter);
+          element.removeEventListener("mouseleave", handleMouseLeave);
+        });
+      };
+    }
   }, [updateCursorPosition]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div

@@ -45,7 +45,7 @@ const AutoSliderBanner = () => {
           TANIYN
         </h1>
         <p className="text-xl text-gray-300 text-center my-8 font-berosong">
-          The musician from the future
+          The musician from Uzbekistan
         </p>
         <Button onClick={handleShopClick} size="lg" variant="outline">
           CONTACT US

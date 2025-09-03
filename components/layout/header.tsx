@@ -35,9 +35,9 @@ function Header() {
 
         {/* Mobile Header */}
         <div className="md:hidden flex justify-between items-center">
-          <div className="font-orbitron text-xl font-bold text-white font-berosong">
+          <Link href="/" className="font-orbitron text-xl font-bold text-white">
             TANIYN
-          </div>
+          </Link>
           <button
             className="text-white hover:text-gray-300 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -63,12 +63,6 @@ function Header() {
                 className="text-left text-gray-300 hover:text-white transition-colors"
               >
                 Home
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-left text-gray-300 hover:text-white transition-colors"
-              >
-                About
               </button>
               <button
                 onClick={() => scrollToSection("merch")}

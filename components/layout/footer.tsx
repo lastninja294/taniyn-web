@@ -18,7 +18,7 @@ const Footer = () => {
               TANIYN
             </div>
             <p className="font-mono text-sm text-gray-400">
-              The musician from the future.
+              The musician from the Uzbekistan.
             </p>
           </div>
 

@@ -31,9 +31,9 @@ const berosong = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TANIYN - The Musician from the Future",
+  title: "TANIYN - Music without borders",
   description:
-    "TANIYN is a futuristic hip-hop/rap artist blending dark aesthetics with powerful lyricism. Known for tracks like '079,' 'Toxic,' and 'Novacaine,' TANIYN is redefining the sound of the new generation.",
+    "TANIYN is a musician, a solo musical artist blending dark aesthetics with powerful lyricism. Known for tracks like '079,' 'Toxic,' and 'Novacaine,' TANIYN is redefining the sound of the new generation.",
   keywords: [
     "TANIYN",
     "hip hop",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   publisher: "TANIYN",
   metadataBase: new URL("https://taniyn.vercel.app/"),
   openGraph: {
-    title: "TANIYN - The Musician from the Future",
+    title: "TANIYN - Music without borders",
     description:
       "Dive into TANIYN’s futuristic hip-hop world. Experience raw lyrics, unique beats, and iconic tracks like '079,' 'Toxic,' and 'Novacaine.'",
     url: "https://taniyn.uz",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
         url: "/images/meta.png",
         width: 800,
         height: 800,
-        alt: "TANIYN - Futuristic Musician",
+        alt: "TANIYN - Music without borders",
       },
     ],
     locale: "en_US",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TANIYN - The Musician from the Future",
+    title: "TANIYN - Music without borders",
     description:
-      "TANIYN is reshaping hip-hop with a futuristic sound. Listen to tracks like '079,' 'Toxic,' and 'Novacaine.'",
+      "Experience raw lyrics, unique beats, and iconic tracks like '079,' 'Toxic,' and 'Novacaine.'",
     images: ["/images/meta.png"],
   },
   icons: {
@@ -88,13 +88,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-orbitron: ${orbitron.variable};
-  --font-berosong: ${berosong.variable};
-}
+            html {
+              font-family: ${GeistSans.style.fontFamily};
+              --font-sans: ${GeistSans.variable};
+              --font-mono: ${GeistMono.variable};
+              --font-orbitron: ${orbitron.variable};
+              --font-berosong: ${berosong.variable};
+            }
         `}</style>
       </head>
       <body
